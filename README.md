@@ -1,23 +1,10 @@
-<p align="center">
-  <img width="100%" src="https://user-images.githubusercontent.com/10369094/31211729-591d059c-a950-11e7-86af-fa5ea3d7dbac.png" />
-</p>
+<div align=center>
+<img src="imgs/logo.png" width="60%" height="auto">
 
-<p align="center">
-  <a href="https://reporanger.com">
-    <img src="https://img.shields.io/badge/maintained%20with-Ranger-1f93f3.svg" alt="maintained with Ranger" />
-  </a>
-  <a href="#contributors">
-    <img src="https://img.shields.io/badge/all_contributors-160-orange.svg" alt="All Contributors" />
-  </a>
-  <a href="/LICENSE">
-    <img src="https://img.shields.io/github/license/carbon-app/carbon.svg" alt="MIT License" />
-  </a>
-  <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fcarbon-app%2Fcarbon?ref=badge_shield">
-    <img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcarbon-app%2Fcarbon.svg?type=shield" alt="FOSSA Status" />
-  </a>
-</p>
-
-<br></br>
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![简体中文 badge](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-Simplified%20Chinese-blue)](README_zh.md)
+</div>
 
 
 ## Introduction
