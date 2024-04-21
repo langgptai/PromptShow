@@ -46,33 +46,18 @@ export default function About() {
       <div className="about">
         <div className="mb4">
           <h2>What does this do?</h2>
-          <p>Carbon lets you create and share beautiful images of your source code</p>
+          <p>PromptShow lets you create and share beautiful images of your LLM Prompts</p>
           <p>
-            You know all of those code screenshots you see on Twitter? Although the code&apos;s
-            usually impressive, we thought there was room for improvement in the aesthetic
-            department. So what are you waiting for? Go try it out and impress all your developer
-            and designer friends.{' '}
+            You know all of those code screenshots you see on Twitter? {' '}
             <span role="img" aria-label="Palette">
               🎨
             </span>
           </p>
         </div>
         <div className="mb4">
-          <h2>Who uses it?</h2>
-          <p>
-            Carbon is used by thousands of developers daily, including experts at:
-            <img
-              className="mt2"
-              width="508px"
-              src="/static/svg/open-source-companies-2.svg"
-              alt="Companies that trust Carbon: Google, Airbnb, GitHub, Coinbase, and Microsoft"
-            />
-          </p>
-        </div>
-        <div className="mb4">
           <h2>How do I use it?</h2>
           <h4 className="mb0 mt3">Import</h4>
-          <p className="mb1 mt2">There are a few different ways to import code into Carbon:</p>
+          <p className="mb1 mt2">There are a few different ways to import LLM Prompts into PromptShow:</p>
           <ul className="mt0 mb3">
             <li>Drop a file into the editor</li>
             <li>
@@ -82,11 +67,11 @@ export default function About() {
               </a>
               )
             </li>
-            <li>Paste your code directly</li>
+            <li>Paste your prompt directly</li>
           </ul>
           <h4 className="mb0 mt4">Customization</h4>
           <p className="mt2 mb3">
-            Once you&apos;ve got all of your code into Carbon, you can customize your image by
+            Once you&apos;ve got all of your prompt into PromptShow, you can customize your image by
             changing the syntax theme, background color/image, window theme, or padding.
           </p>
           <p className="mt2 mb3">
@@ -99,8 +84,8 @@ export default function About() {
             directly.
           </p>
           <p className="mt2 mb3">
-            If you use the &apos;Tweet&apos; button, Carbon will automatically make your image
-            accessible. However, if you want to manually tweet your Carbon image, please check out (
+            If you use the &apos;Tweet&apos; button, PromptShow will automatically make your image
+            accessible. However, if you want to manually tweet your PromptShow image, please check out (
             <a
               className="link"
               href="https://help.twitter.com/en/using-twitter/picture-descriptions"
@@ -110,7 +95,7 @@ export default function About() {
             ).
           </p>
           <p className="mt2 mb3">
-            If you include a Carbon image in a post, the source code will be invisible to assistive
+            If you include a PromptShow image in a post, the source code will be invisible to assistive
             technology — it will not be possible to enlarge or copy it, etc. Please, think about
             adding another element with the source code as text, like (
             <a
@@ -168,7 +153,7 @@ export default function About() {
         <div>
           <h2>I want to make this better.</h2>
           <p>
-            <a className="link" href="https://github.com/carbon-app/carbon#contribute--support">
+            <a className="link" href="https://github.com/langgptai/PromptShow">
               Contributors welcome!
             </a>
           </p>
