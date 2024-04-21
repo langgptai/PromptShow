@@ -5,9 +5,10 @@ export default function Logo() {
       <svg 
           role="img" 
           aria-label="Carbon Logo"
-          width="3187.5" 
-          height="870.4481921998021" 
           xmlns="http://www.w3.org/2000/svg" 
+          width="243.154" 
+          height="66.4"
+          viewBox="0 0 335 83"
           version="1.1">
           <g className="layer" transform="scale(9.375) translate(10, 10)">
             <g fill="rgb(36, 119, 226)" id="SvgjsG1276" transform="matrix(2.57732 0 0 2.57732 116.649 -2.27824)">
