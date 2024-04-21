@@ -12,7 +12,7 @@ function Drawer(props) {
       <div className="flex column">
         <Link href="/snippets">
           <Button large center padding="0.5rem 0" style={{ borderBottom: '1px solid' }}>
-            <img src="/static/svg/snippets.svg" alt="Snippets page" width="16px" /> Snippets{' '}
+            <img src="/static/svg/snippets.svg" alt="Snippets page" width="16px" /> Prompts{' '}
           </Button>
         </Link>
         <Link href="/account">

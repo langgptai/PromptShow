@@ -54,16 +54,16 @@ export default function Billing() {
     <div className="checkout">
       {success ? (
         <div className="column">
-          <h4>Thank you for supporting Carbon!</h4>
+          <h4>Thank you for supporting PromptShow!</h4>
           <p className="success">
-            However, Carbon Diamond is not quite ready yet.
+            However, PromptShow Diamond is not quite ready yet.
             <br />
             {/* Your card has <u>not</u> been charged or saved today. */}
             <br />
             We greatly appreciate your support, and will let you know when premium features launch!
           </p>
           <p className="success">
-            — the Carbon Team{' '}
+            — the LangGPT Team{' '}
             <span role="img" aria-label="Black and yellow hearts">
               💛🖤
             </span>
