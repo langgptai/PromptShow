@@ -6,15 +6,15 @@ import { COLORS } from '../lib/constants'
 const Footer = () => (
   <footer role="contentinfo" className="mt3">
     <nav className="mt3">
-      <Link href="/about" prefetch={false}>
+      <Link href="https://www.langgpt.ai" prefetch={false}>
         <a className="link" href="/about">
           about
         </a>
       </Link>
-      <a className="link" href="https://github.com/carbon-app/carbon">
+      <a className="link" href="https://github.com/langgptai/PromptShow">
         source
       </a>
-      <a className="link" href="/terms">
+      <a className="link" href="https://github.com/langgptai/PromptShow">
         terms
       </a>
       <a className="link" href="/privacy">
@@ -28,8 +28,8 @@ const Footer = () => (
 
     <div className="mt2 mb2">
       created by{' '}
-      <a className="author-link" href="https://twitter.com/carbon_app">
-        @carbon_app
+      <a className="author-link" href="https://github.com/langgptai">
+        @LangGPT.ai
       </a>{' '}
       ¬
     </div>

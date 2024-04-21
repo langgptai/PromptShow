@@ -13,5 +13,5 @@ read -p "Deploy to production (y/N)?" -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  vercel alias "$VERCEL_URL" carbon.now.sh
+  vercel alias "$VERCEL_URL" show.langgpt.ai
 fi
