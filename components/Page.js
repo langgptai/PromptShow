@@ -20,10 +20,14 @@ class Page extends React.Component {
         <Meta />
         <AuthContext>
           <Announcement />
+          <a href="https://www.langgpt.ai" className="langgpt-link" target="_blank" rel="noopener noreferrer">
+          Visit LangGPT.ai
+          </a>
           <Header enableHeroText={enableHeroText} />
           <div className="login-button-container">
             <LoginButton />
           </div>
+
           <div className="page">{children}</div>
         </AuthContext>
 
@@ -34,6 +38,18 @@ class Page extends React.Component {
             .main {
               ${flex ? COLUMN : ''}
               margin-top: 6rem;
+            }
+            /* 在您的应用的全局样式文件中或者使用 <style> 标签 */
+            .langgpt-link {
+              position: absolute;
+              top: 1.4rem;
+              left: 1rem;
+              padding: 8px 16px;
+              background-color: #007BFF;
+              color: white;
+              text-decoration: none;
+              border-radius: 4px;
+              margin-right: 20px; /* 添加间距确保不与其他元素重叠 */
             }
             .login-button-container {
               position: absolute;
