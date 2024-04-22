@@ -180,7 +180,7 @@ class Editor extends React.Component {
   exportImage = (format = 'blob', options = {}) => {
     const link = document.createElement('a')
 
-    const prefix = options.filename || this.state.name || 'carbon'
+    const prefix = options.filename || this.state.name || 'PromptShow'
 
     return this.getCarbonImage({ format })
       .then(blob => window.URL.createObjectURL(blob))
