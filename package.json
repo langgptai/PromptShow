@@ -78,7 +78,7 @@
     "lint-staged": "^11.2.3",
     "now-release": "^0.0.2",
     "vercel": "^24.2.3",
-    "wait-on": "^6.0.1"
+    "wait-on": "^6.0.1",
   },
   "resolutions": {
     "@grpc/grpc-js": "^1.6.7",
