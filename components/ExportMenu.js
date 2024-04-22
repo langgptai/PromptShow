@@ -73,7 +73,7 @@ function ExportMenu({ onChange, exportSize, isVisible, toggleVisibility, exportI
       >
         <div className="export-row">
           <span className="filename">File name</span>
-          <Input ref={input} title="filename" placeholder="carbon" color={COLORS.PURPLE} />
+          <Input ref={input} title="filename" placeholder="PromptShow" color={COLORS.PURPLE} />
         </div>
         <div className="export-row">
           <span>Size</span>
