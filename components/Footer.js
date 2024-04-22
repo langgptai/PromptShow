@@ -8,26 +8,26 @@ const Footer = () => (
     <nav className="mt3">
       <Link href="https://www.langgpt.ai" prefetch={false}>
         <a className="link" href="/about">
-          about
+          About
         </a>
       </Link>
       <a className="link" href="https://github.com/langgptai/PromptShow">
-        source
+        Source
       </a>
       <a className="link" href="https://github.com/langgptai/PromptShow">
-        terms
+        Terms
       </a>
       <a className="link" href="/privacy">
-        privacy
+        Privacy
       </a>
       <a className="link" href="/offsets">
-        offsets
+        Offsets
       </a>
       {/* <span className="new">New</span> */}
     </nav>
 
     <div className="mt2 mb2">
-      created by{' '}
+      Created by{' '}
       <a className="author-link" href="https://github.com/langgptai">
         @LangGPT.ai
       </a>{' '}
