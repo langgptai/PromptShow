@@ -1,16 +1,16 @@
 {
-  "name": "carbon",
+  "name": "promptshow",
   "description": "Create and share beautiful images of your source code",
   "version": "4.9.10",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carbon-app/carbon.git"
+    "url": "git+https://github.com/langgptai/PromptShow"
   },
   "bugs": {
-    "url": "https://github.com/carbon-app/carbon/issues"
+    "url": "https://github.com/langgptai/PromptShow/issues"
   },
-  "homepage": "https://carbon.now.sh",
+  "homepage": "https://show.langgpt.ai",
   "engines": {
     "node": ">=12"
   },
@@ -78,7 +78,7 @@
     "lint-staged": "^11.2.3",
     "now-release": "^0.0.2",
     "vercel": "^24.2.3",
-    "wait-on": "^6.0.1",
+    "wait-on": "^6.0.1"
   },
   "resolutions": {
     "@grpc/grpc-js": "^1.6.7",
