@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { loginWithEmail, registerWithEmail, loginGitHub } from '../lib/client'
+import { loginWithEmail, registerWithEmail, logout, loginGitHub } from '../lib/client'
 
 import Button from './Button'
 import Popout, { managePopout } from './Popout'
