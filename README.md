@@ -1,5 +1,5 @@
 <div align=center>
-<img src="docs/images/logo.png" width="60%" height="auto">
+<img src="docs/images/logo-no-background.png" width="60%" height="auto">
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
