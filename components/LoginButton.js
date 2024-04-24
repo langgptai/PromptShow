@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { loginWithEmail, registerWithEmail, logout, loginGitHub } from '../lib/client'
+import firebase, { logout, loginGitHub } from '../lib/client'
 
 import Button from './Button'
 import Popout, { managePopout } from './Popout'
 import { useAuth } from './AuthContext'
-
 
 function Drawer(props) {
   return (

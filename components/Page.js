@@ -5,8 +5,6 @@ import Header from './Header'
 import Footer from './Footer'
 import Announcement from './Announcement'
 import LoginButton from './LoginButton'
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
 
 const COLUMN = `
   display: flex;
@@ -34,8 +32,7 @@ class Page extends React.Component {
         </AuthContext>
 
         <Footer />
-        <Analytics />
-        <SpeedInsights />
+
 
         <style jsx>
           {`
