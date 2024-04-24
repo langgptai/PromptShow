@@ -47,84 +47,61 @@ function Drawer(props) {
 }
 
 function LoginButton({ isVisible, toggleVisibility }) {
-  const user = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isRegistering, setIsRegistering] = useState(false);
-
-  const handleEmailAuth = async () => {
-    try {
-      if (isRegistering) {
-        await registerWithEmail(email, password);
-        alert("Please check your email to verify your account.");
-      } else {
-        await loginWithEmail(email, password);
-      }
-    } catch (error) {
-      console.error("Authentication error:", error.message);
-      alert(error.message); // 显示错误消息
-    }
-  };
+  const user = useAuth()
 
   if (!firebase) {
-    return null;
+    return null
   }
 
   return (
     <div>
-      {!user ? (
-        <>
-          <Button
-            center
-            border
-            large
-            padding="0 16px"
-            color="white"
-            className="profile-button"
-            onClick={() => loginGitHub()}
-          >
-            <img height={20} src='/static/svg/github.svg' alt='GitHub' />
-            Sign in/up with GitHub
-          </Button>
-
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <Button onClick={handleEmailAuth}>
-            {isRegistering ? 'Register' : 'Login'}
-          </Button>
-          <Button onClick={() => setIsRegistering(!isRegistering)}>
-            {isRegistering ? 'Switch to Login' : 'Switch to Register'}
-          </Button>
-        </>
-      ) : (
-        <>
-          <Button
-            center
-            border
-            large
-            padding="0 16px"
-            color="white"
-            className="profile-button"
-            onClick={toggleVisibility}
-          >
-            <img height={20} src={user.photoURL || '/static/svg/user.svg'} alt={user.displayName || 'User'} />
-            {user.displayName || 'User'}
-          </Button>
-          <Drawer isVisible={isVisible} />
-        </>
-      )}
+      <Button
+        center
+        border
+        large
+        padding="0 16px"
+        color="white"
+        className="profile-button"
+        onClick={() => {
+          if (!user) {
+            loginGitHub()
+          } else {
+            toggleVisibility()
+          }
+        }}
+      >
+        <img
+          height={20}
+          src={user ? user.photoURL : '/static/svg/github.svg'}
+          alt={user ? user.displayName : 'GitHub'}
+        />
+        <span>{user ? user.displayName : 'Sign in/up'}</span>
+      </Button>
+      <Drawer isVisible={user && isVisible} />
+      <style jsx>
+        {`
+          div,
+          div :global(.profile-button) {
+            position: relative;
+            height: 100%;
+          }
+          div :global(.profile-button) {
+            max-width: 218px;
+            min-height: 40px;
+          }
+          span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          img {
+            border-radius: 50%;
+            margin-right: 16px;
+          }
+        `}
+      </style>
     </div>
-  );
+  )
 }
 
-export default managePopout(LoginButton);
+export default managePopout(LoginButton)
