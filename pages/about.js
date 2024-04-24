@@ -151,14 +151,13 @@ export default function About() {
           </table>
         </div>
         <div>
-          <h2>I want to make this better.</h2>
+          <h2>Contact Information</h2>
           <p>
             <a className="link" href="https://github.com/langgptai/PromptShow">
-              Contributors welcome!
+               Email: ethereal_ai@hotmail.com
             </a>
           </p>
           <br />
-          <Contributors />
         </div>
       </div>
       <style jsx>
