@@ -139,7 +139,7 @@ export default function Reset() {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
-          background: ${COLORS.BLACK};
+          background: ${COLORS.LightBlue};
           color: white;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
             'Helvetica Neue', sans-serif;

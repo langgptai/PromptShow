@@ -18,12 +18,14 @@ import CopyMenu from './CopyMenu'
 import Themes from './Themes'
 import FontFace from './FontFace'
 import LanguageIcon from './svg/Language'
+import PresetsOutside from './PresetsOutside'
 import {
   LANGUAGES,
   LANGUAGE_MIME_HASH,
   LANGUAGE_MODE_HASH,
   LANGUAGE_NAME_HASH,
   DEFAULT_EXPORT_SIZE,
+  DEFAULT_PRESETS,
   COLORS,
   EXPORT_SIZES_HASH,
   DEFAULT_CODE,
@@ -33,7 +35,7 @@ import {
   FONTS,
 } from '../lib/constants'
 import { getRouteState } from '../lib/routing'
-import { getSettings, unescapeHtml, formatCode, omit } from '../lib/util'
+import { getSettings, unescapeHtml, formatCode, omit, getPresets } from '../lib/util'
 import domtoimage from '../lib/dom-to-image'
 
 const languageIcon = <LanguageIcon />
@@ -52,6 +54,8 @@ class Editor extends React.Component {
     ...DEFAULT_SETTINGS,
     ...this.props.snippet,
     loading: true,
+    selectedPresets: null, // 初始没有选中的预设主题
+
   }
 
   async componentDidMount() {
@@ -77,11 +81,21 @@ class Editor extends React.Component {
     }
 
     this.setState(newState)
+
+
+    // 从 localStorage 中恢复选中的预设主题 ID
+    // const savedSelectedPreset = newState.selectedPresets.id
+    // const presetId = parseInt(savedSelectedPreset.substring(7)); 
+    // console.log(presetId);
+    // this.setState({ selectedPresets: presetId });
+    // console.log(this.state.selectedPresets);
+
   }
 
   carbonNode = React.createRef()
 
   getTheme = () => this.props.themes.find(t => t.id === this.state.theme) || DEFAULT_THEME
+
 
   onUpdate = debounce(updates => this.props.onUpdate(updates), 750, {
     trailing: true,
@@ -279,7 +293,22 @@ class Editor extends React.Component {
     }
   }
 
-  applyPreset = ({ id: preset, ...settings }) => this.updateState({ preset, ...settings })
+  // 在 updateState 方法中添加更新预设主题的逻辑
+  updateSelectedPreset = preset =>
+    this.setState({ selectedPresets: preset }, () => {
+      
+      // 应用预设主题的逻辑
+      this.applyPreset(preset);
+    });
+
+  applyPreset = preset => {
+    // 根据预设主题更新状态，例如：
+    this.updateState({
+      theme: preset.theme,
+      backgroundColor: preset.backgroundColor,
+      // ...其他需要更新的状态
+    });
+  };
 
   format = () =>
     formatCode(this.state.code)
@@ -328,6 +357,7 @@ class Editor extends React.Component {
       code,
       exportSize,
       titleBar,
+      selectedPresets,
     } = this.state
 
     const config = getConfig(this.state)
@@ -358,35 +388,49 @@ class Editor extends React.Component {
             list={LANGUAGES}
             onChange={this.updateLanguage}
           />
-          <div className="toolbar-second-row">
-            <div className="setting-buttons">
-              <BackgroundSelect
-                onChange={this.updateBackground}
-                updateHighlights={this.updateHighlights}
-                mode={backgroundMode}
-                color={backgroundColor}
-                image={backgroundImage}
-                carbonRef={this.carbonNode.current}
-              />
-              <Settings
-                {...config}
-                onChange={this.updateSetting}
-                resetDefaultSettings={this.resetDefaultSettings}
-                format={this.format}
-                applyPreset={this.applyPreset}
-                getCarbonImage={this.getCarbonImage}
-              />
-              <CopyMenu copyImage={this.copyImage} carbonRef={this.carbonNode.current} />
+          <div className='setting'>
+            <div className="presets">
+              {DEFAULT_PRESETS.slice(0, 4).map((preset, index) => (
+                <PresetsOutside
+                  key={preset.id}
+                  preset={preset}
+                  selected={this.state.selectedPresets && this.state.selectedPresets.id === preset.id}
+                  apply={() => this.updateSelectedPreset(preset)}
+                  remove={() => this.setState({ selectedPresets: null })}
+                />
+              ))}
             </div>
-            <div id="style-editor-button" />
-            <div className="share-buttons">
-              <ShareMenu tweet={this.tweet} imgur={this.imgur} />
-              <ExportMenu
-                onChange={this.updateSetting}
-                exportImage={this.exportImage}
-                exportSize={exportSize}
-              />
+            <div className="toolbar-second-row">
+              <div className="separator">|</div>
+              <div className="setting-buttons">
+                <BackgroundSelect
+                  onChange={this.updateBackground}
+                  updateHighlights={this.updateHighlights}
+                  mode={backgroundMode}
+                  color={backgroundColor}
+                  image={backgroundImage}
+                  carbonRef={this.carbonNode.current}
+                />
+                <Settings
+                  {...config}
+                  onChange={this.updateSetting}
+                  resetDefaultSettings={this.resetDefaultSettings}
+                  format={this.format}
+                  applyPreset={this.applyPreset}
+                  getCarbonImage={this.getCarbonImage}
+                />
+                <CopyMenu copyImage={this.copyImage} carbonRef={this.carbonNode.current} />
+              </div>
+              <div id="style-editor-button" />
             </div>
+          </div>
+          <div className="share-buttons">
+            <ShareMenu tweet={this.tweet} imgur={this.imgur} />
+            <ExportMenu
+              onChange={this.updateSetting}
+              exportImage={this.exportImage}
+              exportSize={exportSize}
+            />
           </div>
         </Toolbar>
 
@@ -438,13 +482,11 @@ class Editor extends React.Component {
               display: flex;
               height: 40px;
             }
-            .share-buttons {
-              margin-left: auto;
-            }
+          
             .toolbar-second-row {
               display: flex;
               flex: 1 1 auto;
-            }
+            }    
             .setting-buttons > :global(div) {
               margin-right: 0.5rem;
             }
@@ -453,14 +495,38 @@ class Editor extends React.Component {
               display: flex;
               align-items: center;
             }
+            .presets{
+              display: flex;
+              width :200px;
+            }
+             .separator {
+              font-size: 40px;
+              margin-right: 8px;
+              position: relative;
+              bottom: 10px;
+            }
+            .setting {
+              display: flex;
+            }
             @media (max-width: 768px) {
               .toolbar-second-row {
-                display: block;
+                display: flex;
               }
               #style-editor-button {
                 margin-top: 0.5rem;
               }
+              .presets{
+                display: flex;
+                width :200px;
+              }
+               .separator {
+                font-size: 40px;
+                margin-right: 8px;
+                position: relative;
+                bottom: 10px;
+              }
             }
+           
           `}
         </style>
       </div>
@@ -469,8 +535,8 @@ class Editor extends React.Component {
 }
 
 Editor.defaultProps = {
-  onUpdate: () => {},
-  onReset: () => {},
+  onUpdate: () => { },
+  onReset: () => { },
 }
 
 export default Editor

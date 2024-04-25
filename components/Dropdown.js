@@ -238,6 +238,7 @@ const SelectedItem = ({
             outline: none;
             font-size: inherit;
             font-family: inherit;
+            width:105px;
           }
 
           .dropdown-arrow {
