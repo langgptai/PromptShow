@@ -36,7 +36,7 @@ const Footer = () => (
     <style jsx>
       {`
         footer {
-          font-size: 14px;
+          font-size: 18px;
           text-align: center;
         }
 

@@ -219,6 +219,7 @@ class Carbon extends React.PureComponent {
                 onSelection={this.onSelection}
               />
               {config.watermark && <Watermark light={light} />}
+              <div className='watermark-new'>Powered by LangGPT.ai</div>
               <div className="container-bg">
                 <div className="white eliminateOnRender" />
                 <div className="alpha eliminateOnRender" />
@@ -355,6 +356,14 @@ class Carbon extends React.PureComponent {
               visibility: ${this.props.readOnly ? 'hidden' : ''};
             }
 
+            .watermark-new {
+              z-index: 999999999999;
+              font-size: large;
+              position: relative;
+              color: rgba(255, 255, 255, 0.6);
+              left: 650px;
+              top: 20px;
+            }
             @media (max-width: 768px) {
               /* show cursor on mobile */
               .container :global([contenteditable='true']) {
@@ -362,6 +371,14 @@ class Carbon extends React.PureComponent {
               }
               .container {
                 max-width: 480px;
+              }
+              .watermark-new {
+                z-index: 999999999999;
+                font-size: large;
+                position: relative;
+                color: rgba(255, 255, 255, 0.6);
+                left: 160px;
+                top: 25px;
               }
             }
 
