@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import { COLORS } from '../lib/constants';
-import removeButtonStyles from '../Presets';
+import removeButtonStyles from './Presets';
 import Remove from './svg/Remove';
 
 const PresetsOutside = React.memo(({ remove, apply, selected, preset }) => {
