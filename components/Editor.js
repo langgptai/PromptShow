@@ -35,7 +35,7 @@ import {
   FONTS,
 } from '../lib/constants'
 import { getRouteState } from '../lib/routing'
-import { getSettings, unescapeHtml, formatCode, omit, getPresets } from '../lib/util'
+import { getSettings, unescapeHtml, formatCode, omit } from '../lib/util'
 import domtoimage from '../lib/dom-to-image'
 
 const languageIcon = <LanguageIcon />
@@ -357,7 +357,7 @@ class Editor extends React.Component {
       code,
       exportSize,
       titleBar,
-      selectedPresets,
+      //selectedPresets,
     } = this.state
 
     const config = getConfig(this.state)
@@ -390,7 +390,7 @@ class Editor extends React.Component {
           />
           <div className='setting'>
             <div className="presets">
-              {DEFAULT_PRESETS.slice(0, 4).map((preset, index) => (
+              {DEFAULT_PRESETS.slice(0, 4).map((preset) => (
                 <PresetsOutside
                   key={preset.id}
                   preset={preset}

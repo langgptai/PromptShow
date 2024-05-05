@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Watermark({ light }) {
+export default function Watermark() {
   return (
     <div className='watermark'>
         {/* <img src="/static/brand/logo.png" alt="SVG Image" />    

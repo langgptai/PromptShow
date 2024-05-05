@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from './Button';
-import { DEFAULT_PRESETS,COLORS } from '../lib/constants';
-  
-
+import { COLORS } from '../lib/constants';
+import removeButtonStyles from '../Presets';
+import Remove from './svg/Remove';
 
 const PresetsOutside = React.memo(({ remove, apply, selected, preset }) => {
   const isSelected = preset.id === selected
 
-  console.log(isSelected);
-  console.log(preset.id);
+  // console.log(isSelected);
+  // console.log(preset.id);
 
   return (
 
